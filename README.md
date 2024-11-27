@@ -1,54 +1,54 @@
-## Customize this file after creating the new REPO and remove this lines.
-What to adjust:  
-* Add the your project or repo name direct under the logo.
-* Add a short and long desciption.
-* Add links for your final repo to report a bug or request a feature.
-* Add list of used technologies.
-* If you have, add a roadmap or remove this section.
-* Fill up the section for set up and documentation.
- * Start in this file only with documentation and link to the docs folder.
-* Add more project shields. Use [shields.io](https://shields.io/) with style `for-the-badge`.
+<div style="text-align: center;">
+<img src="./docs/project_logo.png" alt="drawing" width="333"/>
+</div>
 
-## ------- end to remove -------
-<!-- add Project Logo, if existing -->
-
-# repo or project name
+# oai-pmh-spring-boot-starter
 
 [![Made with love by it@M][made-with-love-shield]][itm-opensource]
-<!-- feel free to add more shields, style 'for-the-badge' -> see https://shields.io/badges -->
+![Maven Central](https://img.shields.io/maven-central/v/:groupId/:artifactId?style=for-the-badge)
+![Build Status](https://img.shields.io/gitlab/pipeline-status/it-at-m%2Foai-pmh-spring-boot-starter?style=for-the-badge)
+![License](https://img.shields.io/github/license/it-at-m/oai-pmh-spring-boot-starter?style=for-the-badge)
+![Spring Boot](https://img.shields.io/badge/spring--boot-3.6.0-brightgreen?style=for-the-badge)
+![Java](https://img.shields.io/badge/java-21-brightgreen?style=for-the-badge)
 
-*Add a description from your project here.*
+OAI-PMH Spring Boot Starter will help you build an [OAI-PMH](https://www.openarchives.org/pmh/) Data provider
+with [Spring Boot](https://github.com/spring-projects/spring-boot)
 
+## Features
 
-### Built With
+#### OAIMetaBridge
 
-The documentation project is built with technologies we use in our projects:
+- **Spring Boot Starter**: Easily integrate OAI-PMH capabilities into your Spring Boot applications.
+- **API Documentation**: Comprehensive API documentation using Swagger and OpenAPI.
+- **Ready-to-Use Endpoints**: Pre-configured OAI-PMH protocol endpoints for immediate use.
+- **Detailed Request Validation**: Robust validation mechanisms to ensure the integrity of incoming requests.
 
-* *write here the list of used technologies*
+#### OAIPMHSchema
 
-## Roadmap
-
-*if you have a ROADMAP for your project add this here*
-
-
-See the [open issues](#) for a full list of proposed features (and known issues).
-
+- **Java Classes with Jakarta XML Annotations**: Provides annotated Java classes for MARC21 and Dublin Core metadata
+  formats.
+- **Separation of Concerns**: Facilitates the separation of protocol implementation from data processing, making it
+  ideal for backend services or data pipelines.
 
 ## Set up
-*how can i start and fly this project*
 
-## Documentation
-*what insights do you have to tell*
+TBD
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+```xml
+<!-- OAI-PMH Java classes conforming to the XML Protocol Schema  -->
+<dependency>
+    <groupId>de.muenchen.itm.munichmetahub.oaipmhschema</groupId>
+    <artifactId>oaipmhschema</artifactId>
+    <version>1.7.0</version>
+</dependency>
+
+        <!-- Spring Starter for OAI-PMH Endpoints  -->
+<dependency>
+<groupId>de.muenchen.itm.munichmetahub.oaimetabridge</groupId>
+<artifactId>oaimetabridge</artifactId>
+<version>1.7.0</version>
+</dependency>
 ```
-
-use [diagrams](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams).
 
 ## Contributing
 
@@ -79,3 +79,5 @@ it@M - opensource@muenchen.de
 <!-- project shields / links -->
 [made-with-love-shield]: https://img.shields.io/badge/made%20with%20%E2%9D%A4%20by-it%40M-yellow?style=for-the-badge
 [itm-opensource]: https://opensource.muenchen.de/
+
+[repo-url]: https://github.com/it-at-m/oai-pmh-spring-boot-starter
