@@ -1,5 +1,7 @@
-<div style="text-align: center;">
-<img src="./docs/project_logo.png" alt="drawing" width="333"/>
+<div align="center">
+  <a href="#">
+    <img src="./docs/project_logo.png" alt="Logo" width="333" style="display: block; margin: 0 auto; filter: invert(0)">
+  </a>
 </div>
 
 # oai-pmh-spring-boot-starter
