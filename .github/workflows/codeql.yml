@@ -1,0 +1,20 @@
+# Workflow for advanced CodeQL setup used for scanning Java/JavaScript/TypeScript/Vue/Python based source files
+name: "CodeQL Advanced"
+
+on:
+  # Runs on pull requests and on pushes to main (in order to keep the regular scanning by GitHub working)
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  codeql:
+    uses: it-at-m/.github/.github/workflows/codeql.yml@main
+    with:
+      analyze-java: true
+      # java-buildmode: "autobuild" # e.g. none, autobuild (default), manual
+      # java-version: "21" # default is java 21, only required when using autobuild and analyze-java trues
+      java-build-paths: "['./oai-pmh-schema', './oai-pmh-spring-boot-starter']" # define multiple build paths if using multiple java projects, only required when using java-buildmode 'autobuild'
+      analyze-javascript-typescript-vue: false
+      analyze-python: false
+      # analysis-query: "security-and-quality" # e.g. default, security-extended, security-and-quality (default)
