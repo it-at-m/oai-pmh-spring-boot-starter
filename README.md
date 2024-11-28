@@ -10,7 +10,7 @@
 ![Maven Central](https://img.shields.io/maven-central/v/:groupId/:artifactId?style=for-the-badge)
 ![Build Status](https://img.shields.io/gitlab/pipeline-status/it-at-m%2Foai-pmh-spring-boot-starter?style=for-the-badge)
 ![License](https://img.shields.io/github/license/it-at-m/oai-pmh-spring-boot-starter?style=for-the-badge)
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.6.0-brightgreen?style=for-the-badge)
+![Spring Boot](https://img.shields.io/badge/spring--boot-3.5.5-brightgreen?style=for-the-badge)
 ![Java](https://img.shields.io/badge/java-21-brightgreen?style=for-the-badge)
 
 OAI-PMH Spring Boot Starter will help you build an [OAI-PMH](https://www.openarchives.org/pmh/) Data provider
