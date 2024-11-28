@@ -39,7 +39,7 @@ jobs:
       - name: Perform maven release
         run: >
           mvn -B -ntp release:prepare release:perform
-          -pl ${{ module }} -am
+          -pl ${{ github.event.inputs.module }} -am
           -DreleaseVersion=${{ github.event.inputs.release-version }} 
           -DdevelopmentVersion=${{ github.event.inputs.release-version }}-SNAPSHOT
           -Dtag=${{ github.event.inputs.release-version }} 
@@ -52,7 +52,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.event.inputs.release-tag }}
+          tag_name: ${{ github.event.inputs.release-version }}
           draft: false
           prerelease: false
           generate_release_notes: true
