@@ -14,6 +14,7 @@
     <artifactId>oai-pmh-spring-boot-starter</artifactId>
     <version>${versions_oai-pmh-spring-boot-starter}</version>
     <name>oai-pmh-spring-boot-starter</name>
+    <url>https://github.com/it-at-m/oai-pmh-spring-boot-starter</url>
 
     <properties>
         <jakarta.xml.bind-api.version>4.0.2</jakarta.xml.bind-api.version>

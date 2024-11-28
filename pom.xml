@@ -15,6 +15,7 @@
     <artifactId>oai-pmh-spring-boot-starter-parent</artifactId>
     <version>${revision}</version>
     <name>oai-pmh-spring-boot-starter :: parent</name>
+    <url>https://github.com/it-at-m/oai-pmh-spring-boot-starter</url>
 
     <packaging>pom</packaging>
 
