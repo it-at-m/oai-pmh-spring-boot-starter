@@ -19,14 +19,14 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 
 ## Features
 
-#### OAIMetaBridge
+#### OAI-PMH-Starter
 
 - **Spring Boot Starter**: Easily integrate OAI-PMH capabilities into your Spring Boot applications.
 - **API Documentation**: Comprehensive API documentation using Swagger and OpenAPI.
 - **Ready-to-Use Endpoints**: Pre-configured OAI-PMH protocol endpoints for immediate use.
 - **Detailed Request Validation**: Robust validation mechanisms to ensure the integrity of incoming requests.
 
-#### OAIPMHSchema
+#### OAI-PMH-Schema
 
 - **Java Classes with Jakarta XML Annotations**: Provides annotated Java classes for MARC21 and Dublin Core metadata
   formats.
@@ -40,15 +40,15 @@ TBD
 ```xml
 <!-- OAI-PMH Java classes conforming to the XML Protocol Schema  -->
 <dependency>
-    <groupId>de.muenchen.itm.munichmetahub.oaipmhschema</groupId>
-    <artifactId>oaipmhschema</artifactId>
+  <groupId>de.muenchen.oss.oai</groupId>
+  <artifactId>oai-pmh-schema</artifactId>
     <version>1.7.0</version>
 </dependency>
 
         <!-- Spring Starter for OAI-PMH Endpoints  -->
 <dependency>
-<groupId>de.muenchen.itm.munichmetahub.oaimetabridge</groupId>
-<artifactId>oaimetabridge</artifactId>
+<groupId>de.muenchen.oss.oai</groupId>
+<artifactId>oai-pmh-spring-boot-starter</artifactId>
 <version>1.7.0</version>
 </dependency>
 ```
