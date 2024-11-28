@@ -9,6 +9,7 @@
         <groupId>de.muenchen.oss.oai</groupId>
         <artifactId>oai-pmh-spring-boot-starter-parent</artifactId>
         <version>${revision}</version>
+        <relativePath>../</relativePath>
     </parent>
 
     <artifactId>oai-pmh-spring-boot-starter</artifactId>
