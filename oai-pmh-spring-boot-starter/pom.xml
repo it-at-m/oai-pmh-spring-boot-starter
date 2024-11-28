@@ -108,4 +108,9 @@
         </plugins>
     </build>
 
+    <scm>
+        <url>https://github.com/it-at-m/oai-pmh-spring-boot-starter</url>
+        <connection>scm:git:https://github.com/it-at-m/oai-pmh-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:https://github.com/it-at-m/oai-pmh-spring-boot-starter.git</developerConnection>
+    </scm>
 </project>

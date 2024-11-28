@@ -285,6 +285,13 @@
                     <failIfUnusedDirect>true</failIfUnusedDirect>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -317,6 +324,5 @@
         <url>https://github.com/it-at-m/oai-pmh-spring-boot-starter</url>
         <connection>scm:git:https://github.com/it-at-m/oai-pmh-spring-boot-starter.git</connection>
         <developerConnection>scm:git:https://github.com/it-at-m/oai-pmh-spring-boot-starter.git</developerConnection>
-        <tag>HEAD</tag>
     </scm>
 </project>
