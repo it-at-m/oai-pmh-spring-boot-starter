@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:rights="http://www.openarchives.org/OAI/2.0/rights/"
+        targetNamespace="http://www.openarchives.org/OAI/2.0/rights/"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+
+    <annotation>
+        <documentation>
+            Schema for rights statement to be included either by-reference or
+            in-line. In-line statements may be in any namespace and are
+            subject to "strict" validation, meaning that an XML schema must be
+            available to validate them.
+            Carl Lagoze and Simeon Warner (Cornell University)
+            $Date: 2005/04/27 15:37:43 $
+        </documentation>
+    </annotation>
+
+
+    <element name="rights" type="rights:rightsStatementType"/>
+
+    <complexType name="rightsStatementType">
+        <choice>
+            <element name="rightsReference">
+                <complexType>
+                    <attribute name="ref" type="anyURI" use="required"/>
+                </complexType>
+            </element>
+            <element name="rightsDefinition">
+                <complexType>
+                    <sequence>
+                        <any namespace="##other" processContents="strict"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </choice>
+    </complexType>
+
+</schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:rights="http://www.openarchives.org/OAI/2.0/rights/"
+        targetNamespace="http://www.openarchives.org/OAI/2.0/rights/"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+
+    <annotation>
+        <documentation>
+            Schema for a manifest of rights statements to be included in the
+            Identify and ListSets responses of an OAI server. The appliesTo
+            attribute permits only the value
+            'http://www.openarchives.org/OAI/2.0/entity#metadata' but is
+            included in anticipation of later extension.
+            Carl Lagoze and Simeon Warner (Cornell University)
+            $Date: 2004/11/05 15:52:02 $
+        </documentation>
+    </annotation>
+
+
+    <include schemaLocation="rights.xsd"/>
+
+    <element name="rightsManifest" type="rights:rightsManifestType"/>
+
+    <complexType name="rightsManifestType">
+        <sequence>
+            <element name="rights" type="rights:rightsStatementType" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="appliesTo" type="rights:appliesToType"/>
+    </complexType>
+
+
+    <simpleType name="appliesToType">
+        <restriction base="anyURI">
+            <enumeration value="http://www.openarchives.org/OAI/2.0/entity#metadata"/>
+        </restriction>
+    </simpleType>
+
+</schema>

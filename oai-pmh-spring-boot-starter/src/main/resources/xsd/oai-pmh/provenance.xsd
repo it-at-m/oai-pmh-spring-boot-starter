@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:provenance="http://www.openarchives.org/OAI/2.0/provenance"
+        targetNamespace="http://www.openarchives.org/OAI/2.0/provenance"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <annotation>
+        <documentation>
+            Schema for the description of the provenance of metadata that is
+            re-exposed by an OAI repository, i.e. metadata that has previously
+            been harvested before being exposed by the repository.
+            See: http://www.openarchives.org/OAI/2.0/guidelines-provenance.htm
+            Validated with http://www.w3.org/2001/03/webdata/xsv on 2002/05/16
+            Revised 2002/11/28 to correct URL in this comment
+            Validated with http://www.w3.org/2001/03/webdata/xsv of 2002/11/25 on 2002/11/28
+            Simeon Warner - $Date: 2002/11/28 18:27:17 $
+        </documentation>
+    </annotation>
+
+    <element name="provenance">
+        <complexType>
+            <sequence>
+                <element name="originDescription"
+                         type="provenance:originDescriptionType"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="originDescriptionType">
+        <sequence>
+            <element name="baseURL" type="anyURI"/>
+            <element name="identifier" type="anyURI"/>
+            <element name="datestamp" type="provenance:UTCdatetimeType"/>
+            <element name="metadataNamespace" type="anyURI"/>
+            <element name="originDescription" minOccurs="0"
+                     type="provenance:originDescriptionType"/>
+        </sequence>
+        <attribute name="harvestDate" type="provenance:UTCdatetimeType" use="required"/>
+        <attribute name="altered" type="boolean" use="required"/>
+    </complexType>
+
+    <simpleType name="UTCdatetimeType">
+        <union memberTypes="date dateTime"/>
+    </simpleType>
+
+</schema>
