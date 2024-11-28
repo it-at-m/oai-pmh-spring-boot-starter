@@ -38,7 +38,7 @@ jobs:
           gpg-private-key: ${{ secrets.gpg_private_key }}
           gpg-passphrase: SIGN_KEY_PASS
       - name: Perform maven release
-        run: |
+        run: >
           if [ "${{ github.event.inputs.module }}" == "oai-pmh-spring-boot-starter-parent" ]; then
             mvn -B -ntp release:prepare release:perform -N \
               -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
@@ -60,7 +60,8 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.event.inputs.releaseVersion }}
+          tag_name: ${{ github.event.inputs.release-tag }}
           draft: false
           prerelease: false
           generate_release_notes: true
+
