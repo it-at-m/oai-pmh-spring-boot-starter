@@ -7,14 +7,6 @@ on:
         description: "Default version to use when preparing a release."
         required: true
         default: "X.Y.Z"
-      module:
-        type: choice
-        description: Service-Name
-        required: true
-        options:
-          - oai-pmh-schema
-          - oai-pmh-spring-boot-starter
-          - oai-pmh-spring-boot-starter-parent
 
 jobs:
   release:
@@ -39,20 +31,11 @@ jobs:
           gpg-passphrase: SIGN_KEY_PASS
       - name: Perform maven release
         run: >
-          if [ "${{ github.event.inputs.module }}" == "oai-pmh-spring-boot-starter-parent" ]; then
-            mvn -B -ntp release:prepare release:perform -N \
-              -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
-              -DdevelopmentVersion=${{ github.event.inputs.releaseVersion }}-SNAPSHOT \
-              -Dtag=${{ github.event.inputs.releaseVersion }} \
-              -Darguments="-DskipTests"
-          else
             mvn -B -ntp release:prepare release:perform \
-              -pl ${{ github.event.inputs.module }} -am \
               -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
               -DdevelopmentVersion=${{ github.event.inputs.releaseVersion }}-SNAPSHOT \
               -Dtag=${{ github.event.inputs.releaseVersion }} \
               -Darguments="-DskipTests"
-          fi
         env:
           SIGN_KEY_PASS: ${{ secrets.gpg_passphrase }}
           CENTRAL_USERNAME: ${{ secrets.sonatype_username }}
