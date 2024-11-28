@@ -14,6 +14,7 @@ on:
         options:
           - oai-pmh-schema
           - oai-pmh-spring-boot-starter
+          - oai-pmh-spring-boot-starter-parent
 
 jobs:
   release:
@@ -37,13 +38,20 @@ jobs:
           gpg-private-key: ${{ secrets.gpg_private_key }}
           gpg-passphrase: SIGN_KEY_PASS
       - name: Perform maven release
-        run: >
-          mvn -B -ntp release:prepare release:perform
-          -pl ${{ github.event.inputs.module }} -am
-          -DreleaseVersion=${{ github.event.inputs.release-version }} 
-          -DdevelopmentVersion=${{ github.event.inputs.release-version }}-SNAPSHOT
-          -Dtag=${{ github.event.inputs.release-version }} 
-          -Darguments="-DskipTests"
+        run: |
+          if [ "${{ github.event.inputs.module }}" == "oai-pmh-spring-boot-starter-parent" ]; then
+            mvn -B -ntp release:prepare release:perform -N \
+              -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
+              -DdevelopmentVersion=${{ github.event.inputs.releaseVersion }}-SNAPSHOT \
+              -Dtag=${{ github.event.inputs.releaseVersion }} \
+              -Darguments="-DskipTests"
+          else
+            mvn -B -ntp release:prepare release:perform \
+              -pl ${{ github.event.inputs.module }} -am \
+              -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
+              -DdevelopmentVersion=${{ github.event.inputs.releaseVersion }}-SNAPSHOT \
+              -Dtag=${{ github.event.inputs.releaseVersion }} \
+              -Darguments="-DskipTests"
         env:
           SIGN_KEY_PASS: ${{ secrets.gpg_passphrase }}
           CENTRAL_USERNAME: ${{ secrets.sonatype_username }}
@@ -52,7 +60,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.event.inputs.release-version }}
+          tag_name: ${{ github.event.inputs.releaseVersion }}
           draft: false
           prerelease: false
           generate_release_notes: true
