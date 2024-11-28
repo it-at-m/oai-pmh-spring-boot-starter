@@ -24,9 +24,9 @@
     </modules>
 
     <properties>
-        <revision>1.7.0</revision> <!-- Version of the parent pom -->
-        <versions_oai-pmh-spring-boot-starter>1.7.0</versions_oai-pmh-spring-boot-starter>
-        <versions_oaipmhschema>1.7.0</versions_oaipmhschema>
+        <revision>1.7.0-SNAPSHOT</revision> <!-- Version of the parent pom -->
+        <versions_oai-pmh-spring-boot-starter>1.7.0-SNAPSHOT</versions_oai-pmh-spring-boot-starter>
+        <versions_oaipmhschema>1.7.0-SNAPSHOT</versions_oaipmhschema>
 
         <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
