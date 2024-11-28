@@ -1,0 +1,58 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        description: "Default version to use when preparing a release."
+        required: true
+        default: "X.Y.Z"
+      module:
+        type: choice
+        description: Service-Name
+        required: true
+        options:
+          - oai-pmh-schema
+          - oai-pmh-spring-boot-starter
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.inputs.branch }}
+      - name: Setup git user
+        uses: fregante/setup-git-user@v2
+      - name: Set up JDK 17 and OSSRH auth / GPG signing
+        uses: actions/setup-java@v3
+        with:
+          java-version: "21"
+          distribution: "temurin"
+          cache: "maven"
+          server-id: "central"
+          server-username: CENTRAL_USERNAME
+          server-password: CENTRAL_PASSWORD
+          gpg-private-key: ${{ secrets.gpg_private_key }}
+          gpg-passphrase: SIGN_KEY_PASS
+      - name: Perform maven release
+        run: >
+          mvn -B -ntp release:prepare release:perform
+          -pl ${{ module }} -am
+          -DreleaseVersion=${{ github.event.inputs.release-version }} 
+          -DdevelopmentVersion=${{ github.event.inputs.release-version }}-SNAPSHOT
+          -Dtag=${{ github.event.inputs.release-version }} 
+          -Darguments="-DskipTests"
+        env:
+          SIGN_KEY_PASS: ${{ secrets.gpg_passphrase }}
+          CENTRAL_USERNAME: ${{ secrets.sonatype_username }}
+          CENTRAL_PASSWORD: ${{ secrets.sonatype_password }}
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.release-tag }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
