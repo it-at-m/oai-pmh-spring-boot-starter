@@ -12,6 +12,7 @@
 ![License](https://img.shields.io/github/license/it-at-m/oai-pmh-spring-boot-starter?style=for-the-badge)
 ![Spring Boot](https://img.shields.io/badge/spring--boot-3.5.5-brightgreen?style=for-the-badge)
 ![Java](https://img.shields.io/badge/java-21-brightgreen?style=for-the-badge)
+![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge)
 
 OAI-PMH Spring Boot Starter will help you build an [OAI-PMH](https://www.openarchives.org/pmh/) Data provider
 with [Spring Boot](https://github.com/spring-projects/spring-boot)
