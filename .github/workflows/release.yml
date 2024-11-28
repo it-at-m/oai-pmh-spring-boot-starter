@@ -52,6 +52,7 @@ jobs:
               -DdevelopmentVersion=${{ github.event.inputs.releaseVersion }}-SNAPSHOT \
               -Dtag=${{ github.event.inputs.releaseVersion }} \
               -Darguments="-DskipTests"
+          fi
         env:
           SIGN_KEY_PASS: ${{ secrets.gpg_passphrase }}
           CENTRAL_USERNAME: ${{ secrets.sonatype_username }}
