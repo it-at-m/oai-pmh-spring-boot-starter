@@ -5,12 +5,12 @@
     <parent>
         <groupId>de.muenchen.oss.oai</groupId>
         <artifactId>oai-pmh-spring-boot-starter-parent</artifactId>
-        <version>1.8.0-SNAPSHOT</version>
+        <version>1.7.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>oai-pmh-schema</artifactId>
-    <version>1.8.0-SNAPSHOT</version>
+    <version>1.7.1-SNAPSHOT</version>
     <name>oai-pmh-spring-boot-starter :: oaipmhschema</name>
     <url>https://github.com/it-at-m/oai-pmh-spring-boot-starter</url>
 

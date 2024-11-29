@@ -42,14 +42,14 @@ TBD
 <dependency>
   <groupId>de.muenchen.oss.oai</groupId>
   <artifactId>oai-pmh-schema</artifactId>
-    <version>1.7.0</version>
+  <version>1.7.1</version>
 </dependency>
 
         <!-- Spring Starter for OAI-PMH Endpoints  -->
 <dependency>
 <groupId>de.muenchen.oss.oai</groupId>
 <artifactId>oai-pmh-spring-boot-starter</artifactId>
-<version>1.7.0</version>
+<version>1.7.1</version>
 </dependency>
 ```
 
