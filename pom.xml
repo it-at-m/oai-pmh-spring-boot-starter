@@ -302,6 +302,7 @@
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
                     <tagNameFormat>@{project.version}</tagNameFormat>
+                    <scmCommentPrefix>:bookmark: [maven-release-plugin]</scmCommentPrefix>
                 </configuration>
             </plugin>
         </plugins>
