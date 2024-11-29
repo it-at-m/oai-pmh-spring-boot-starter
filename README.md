@@ -11,7 +11,7 @@
 OAI-PMH Spring Boot Starter will help you build an [OAI-PMH](https://www.openarchives.org/pmh/) Data provider
 with [Spring Boot](https://github.com/spring-projects/spring-boot)
 
-## Features
+## Features ✨
 
 #### OAI-PMH-Starter
 
@@ -31,19 +31,9 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 - **Separation of Concerns**: Facilitates the separation of protocol implementation from data processing, making it
   ideal for backend services or data pipelines.
 
-## Set up
+## Set me up 🔧
 
-TBD
-
-```xml
-<!-- OAI-PMH Java classes conforming to the XML Protocol Schema  -->
-<dependency>
-  <groupId>de.muenchen.oss.oai</groupId>
-  <artifactId>oai-pmh-schema</artifactId>
-  <version>1.7.1</version>
-</dependency>
-
-```
+### 1. Add Dependency
 
 ```xml
 <!-- Spring Starter for OAI-PMH Endpoints  -->
@@ -54,7 +44,35 @@ TBD
 </dependency>
 ```
 
-## Contributing
+```xml
+<!-- OAI-PMH Java classes conforming to the XML Protocol Schema (is already part of de.muenchen.oss.oai.oai-pmh-spring-boot-starter)  -->
+<dependency>
+  <groupId>de.muenchen.oss.oai</groupId>
+  <artifactId>oai-pmh-schema</artifactId>
+  <version>1.7.1</version>
+</dependency>
+
+```
+
+### 2. Implement the RequestProcessor Interface
+
+The Starter provides a functional RestEndpoint that will autowire a Bean of type RequestProcessor.
+
+The [RequestProcessor](https://github.com/it-at-m/oai-pmh-spring-boot-starter/blob/main/oai-pmh-spring-boot-starter/src/main/java/de/muenchen/oss/oai/pmh/starter/webservice/RequestProcessor.java)
+interface needs to be implemented by at least one `@Component` in your application.
+
+The Endpoint of the Starter will pass down these OAI-PMH requests to your implementation:
+
+- Identify
+- GetRecord
+- ListIdentifiers
+- ListMetadataFormats
+- ListRecords
+- ListSets
+
+[An example implementation can be found here.](https://github.com/it-at-m/oai-pmh-spring-boot-starter/blob/main/oai-pmh-spring-boot-starter/src/main/java/de/muenchen/oss/oai/pmh/starter/webservice/RequestProcessorImplementation.java)
+
+## Contributing 🤝
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -70,13 +88,11 @@ Don't forget to give the project a star! Thanks again!
 
 More about this in the [CODE_OF_CONDUCT](/CODE_OF_CONDUCT.md) file.
 
-
-## License
+## License 📄
 
 Distributed under the MIT License. See [LICENSE](LICENSE) file for more information.
 
-
-## Contact
+## Contact 💌
 
 it@M - opensource@muenchen.de
 
