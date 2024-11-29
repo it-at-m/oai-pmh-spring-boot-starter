@@ -7,6 +7,10 @@ on:
         description: "Default version to use when preparing a release."
         required: true
         default: "X.Y.Z"
+      nextDevelopVersion:
+        description: "Default version to use next after the release."
+        required: true
+        default: "X.Y.Z-SNAPSHOT"
 
 jobs:
   release:
@@ -33,7 +37,8 @@ jobs:
         run: >
             mvn -B -ntp release:prepare release:perform \
               -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
-              -DdevelopmentVersion=${{ github.event.inputs.releaseVersion }}-SNAPSHOT \
+            -DdevelopmentVersion=${{ github.event.inputs.nextDevelopVersion }} \
+            -DscmCommentPrefix=:bookmark:[maven-release-plugin] \
               -Dtag=${{ github.event.inputs.releaseVersion }} \
               -Darguments="-DskipTests"
         env:
