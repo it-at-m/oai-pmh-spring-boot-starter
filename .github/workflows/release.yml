@@ -48,7 +48,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ github.event.inputs.release-tag }}
+          tag_name: ${{ github.event.inputs.releaseVersion }}
           draft: false
           prerelease: false
           generate_release_notes: true
