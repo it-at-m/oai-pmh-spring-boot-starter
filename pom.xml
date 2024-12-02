@@ -8,6 +8,7 @@
     <version>1.9.1-SNAPSHOT</version>
     <name>oai-pmh-spring-boot-starter :: parent</name>
     <url>https://github.com/it-at-m/oai-pmh-spring-boot-starter</url>
+    <description>OAI-PMH Spring Boot Starter</description>
 
     <packaging>pom</packaging>
 

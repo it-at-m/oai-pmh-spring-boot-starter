@@ -14,6 +14,7 @@
     <version>1.9.1-SNAPSHOT</version>
     <name>oai-pmh-spring-boot-starter</name>
     <url>https://github.com/it-at-m/oai-pmh-spring-boot-starter</url>
+    <description>Parent POM for OAI-PMH Spring Boot Starter</description>
 
     <properties>
         <jakarta.xml.bind-api.version>4.0.2</jakarta.xml.bind-api.version>
