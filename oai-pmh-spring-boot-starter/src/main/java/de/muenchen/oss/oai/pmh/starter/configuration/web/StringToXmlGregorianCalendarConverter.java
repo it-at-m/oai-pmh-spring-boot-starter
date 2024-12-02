@@ -1,6 +1,6 @@
 package de.muenchen.oss.oai.pmh.starter.configuration.web;
 
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.BadArgumentException;
+import de.muenchen.oss.oai.pmh.exceptions.BadArgumentException;
 import org.springframework.core.convert.converter.Converter;
 
 import javax.xml.datatype.DatatypeConfigurationException;

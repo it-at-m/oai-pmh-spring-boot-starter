@@ -1,7 +1,7 @@
 package de.muenchen.oss.oai.pmh.starter.webservice.controller;
 
+import de.muenchen.oss.oai.pmh.exceptions.*;
 import de.muenchen.oss.oai.pmh.schema.VerbType;
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.*;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.request.Argument;
 import org.junit.jupiter.params.provider.Arguments;
 

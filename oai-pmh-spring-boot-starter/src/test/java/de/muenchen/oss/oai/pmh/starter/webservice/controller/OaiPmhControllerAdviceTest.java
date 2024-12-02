@@ -1,8 +1,8 @@
 package de.muenchen.oss.oai.pmh.starter.webservice.controller;
 
+import de.muenchen.oss.oai.pmh.exceptions.OaiPmhException;
 import de.muenchen.oss.oai.pmh.schema.OaiPmhErrorType;
 import de.muenchen.oss.oai.pmh.schema.OaiPmhType;
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.OaiPmhException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;

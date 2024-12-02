@@ -1,7 +1,7 @@
 package de.muenchen.oss.oai.pmh.starter.webservice.validation;
 
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.BadArgumentException;
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.BadVerbException;
+import de.muenchen.oss.oai.pmh.exceptions.BadArgumentException;
+import de.muenchen.oss.oai.pmh.exceptions.BadVerbException;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.request.Argument;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

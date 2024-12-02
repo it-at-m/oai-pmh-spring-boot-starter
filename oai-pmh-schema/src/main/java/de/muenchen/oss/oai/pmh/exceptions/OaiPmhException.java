@@ -1,4 +1,4 @@
-package de.muenchen.oss.oai.pmh.starter.webservice.exceptions;
+package de.muenchen.oss.oai.pmh.exceptions;
 
 import de.muenchen.oss.oai.pmh.schema.OaiPmhErrorCodeType;
 import lombok.Getter;

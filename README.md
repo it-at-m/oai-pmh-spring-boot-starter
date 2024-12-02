@@ -58,7 +58,7 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 
 The Starter provides a functional RestEndpoint that will autowire a Bean of type RequestProcessor.
 
-The [RequestProcessor](https://github.com/it-at-m/oai-pmh-spring-boot-starter/blob/main/oai-pmh-spring-boot-starter/src/main/java/de/muenchen/oss/oai/pmh/starter/webservice/RequestProcessor.java)
+The [RequestProcessor](oai-pmh-schema/src/main/java/de/muenchen/oss/oai/pmh/RequestProcessor.java)
 interface needs to be implemented by at least one `@Component` in your application.
 
 The Endpoint of the Starter will pass down these OAI-PMH requests to your implementation:
@@ -70,7 +70,12 @@ The Endpoint of the Starter will pass down these OAI-PMH requests to your implem
 - ListRecords
 - ListSets
 
-[An example implementation can be found here.](https://github.com/it-at-m/oai-pmh-spring-boot-starter/blob/main/oai-pmh-spring-boot-starter/src/main/java/de/muenchen/oss/oai/pmh/starter/webservice/RequestProcessorImplementation.java)
+[An example implementation can be found here.](oai-pmh-spring-boot-starter/src/main/java/de/muenchen/oss/oai/pmh/starter/webservice/RequestProcessorImplementation.java)
+
+### Tipps:
+
+- 🥅 We offer a [set of exceptions](oai-pmh-schema/src/main/java/de/muenchen/oss/oai/pmh/exceptions) which get recognized
+  by the starter that you can reuse
 
 ## Contributing 🤝
 

@@ -1,8 +1,8 @@
 package de.muenchen.oss.oai.pmh.starter.configuration;
 
+import de.muenchen.oss.oai.pmh.RequestProcessor;
 import de.muenchen.oss.oai.pmh.starter.configuration.jackson.JacksonConfiguration;
 import de.muenchen.oss.oai.pmh.starter.configuration.web.WebMvcConfiguration;
-import de.muenchen.oss.oai.pmh.starter.webservice.RequestProcessor;
 import de.muenchen.oss.oai.pmh.starter.webservice.RequestProcessorImplementation;
 import de.muenchen.oss.oai.pmh.starter.webservice.controller.OaiPmhController;
 import de.muenchen.oss.oai.pmh.starter.webservice.controller.OaiPmhControllerAdvice;

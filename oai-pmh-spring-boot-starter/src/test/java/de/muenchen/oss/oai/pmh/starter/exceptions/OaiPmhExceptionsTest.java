@@ -1,6 +1,6 @@
 package de.muenchen.oss.oai.pmh.starter.exceptions;
 
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.*;
+import de.muenchen.oss.oai.pmh.exceptions.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

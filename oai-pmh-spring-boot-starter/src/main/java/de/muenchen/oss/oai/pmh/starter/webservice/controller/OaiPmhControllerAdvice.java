@@ -1,7 +1,7 @@
 package de.muenchen.oss.oai.pmh.starter.webservice.controller;
 
+import de.muenchen.oss.oai.pmh.exceptions.OaiPmhException;
 import de.muenchen.oss.oai.pmh.schema.OaiPmhType;
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.OaiPmhException;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.response.OaiPmhTypeFactory;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.MediaType;

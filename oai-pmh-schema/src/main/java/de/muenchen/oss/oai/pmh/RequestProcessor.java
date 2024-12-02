@@ -1,4 +1,4 @@
-package de.muenchen.oss.oai.pmh.starter.webservice;
+package de.muenchen.oss.oai.pmh;
 
 import de.muenchen.oss.oai.pmh.schema.OaiPmhType;
 

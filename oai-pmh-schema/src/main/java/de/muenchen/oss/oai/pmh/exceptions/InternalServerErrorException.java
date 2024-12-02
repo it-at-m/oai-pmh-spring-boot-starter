@@ -1,4 +1,4 @@
-package de.muenchen.oss.oai.pmh.starter.webservice.exceptions;
+package de.muenchen.oss.oai.pmh.exceptions;
 
 public class InternalServerErrorException extends RuntimeException {
 

@@ -1,5 +1,6 @@
 package de.muenchen.oss.oai.pmh.starter.webservice;
 
+import de.muenchen.oss.oai.pmh.RequestProcessor;
 import de.muenchen.oss.oai.pmh.schema.*;
 import de.muenchen.oss.oai.pmh.schema.metadata.dublincore.OaiDcType;
 

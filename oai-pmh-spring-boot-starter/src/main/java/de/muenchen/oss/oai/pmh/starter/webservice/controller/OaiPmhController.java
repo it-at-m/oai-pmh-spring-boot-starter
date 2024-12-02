@@ -1,8 +1,8 @@
 package de.muenchen.oss.oai.pmh.starter.webservice.controller;
 
+import de.muenchen.oss.oai.pmh.RequestProcessor;
+import de.muenchen.oss.oai.pmh.exceptions.BadVerbException;
 import de.muenchen.oss.oai.pmh.schema.OaiPmhType;
-import de.muenchen.oss.oai.pmh.starter.webservice.RequestProcessor;
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.BadVerbException;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.response.OaiPmhTypeFactory;
 import de.muenchen.oss.oai.pmh.starter.webservice.validation.*;
 import io.swagger.v3.oas.annotations.Operation;

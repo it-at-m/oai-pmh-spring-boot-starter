@@ -7,8 +7,8 @@
 
 package de.muenchen.oss.oai.pmh.starter.webservice.schema.response;
 
+import de.muenchen.oss.oai.pmh.exceptions.OaiPmhException;
 import de.muenchen.oss.oai.pmh.schema.*;
-import de.muenchen.oss.oai.pmh.starter.webservice.exceptions.OaiPmhException;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.request.Argument;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.request.ParameterParser;
 import jakarta.servlet.http.HttpServletRequest;
