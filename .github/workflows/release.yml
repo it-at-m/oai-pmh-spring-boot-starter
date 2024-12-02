@@ -20,8 +20,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.branch }}
+
       - name: Setup git user
         uses: fregante/setup-git-user@v2
+
       - name: Set up JDK 21 and OSSRH auth / GPG signing
         uses: actions/setup-java@v4
         with:
@@ -33,6 +35,7 @@ jobs:
           server-password: CENTRAL_PASSWORD
           gpg-private-key: ${{ secrets.gpg_private_key }}
           gpg-passphrase: SIGN_KEY_PASS
+
       - name: Perform maven release
         run: >
             mvn -B -ntp release:prepare release:perform \
@@ -44,6 +47,7 @@ jobs:
           SIGN_KEY_PASS: ${{ secrets.gpg_passphrase }}
           CENTRAL_USERNAME: ${{ secrets.sonatype_username }}
           CENTRAL_PASSWORD: ${{ secrets.sonatype_password }}
+
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v2
@@ -52,4 +56,19 @@ jobs:
           draft: false
           prerelease: false
           generate_release_notes: true
+
+      - name: Update files
+        uses: MathieuSoysal/file-updater-for-release@v1.0.3
+        with:
+          files: README.md # List of files to update
+          prefix: "<version>" # Prefix before the version, default is: ""
+          with-checkout: false # If you don't want to checkout the repo, default is: true
+
+      - name: Push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
+          add: .
+          message: ':bookmark: (readme) new maven release'
 
