@@ -36,6 +36,9 @@ jobs:
           gpg-private-key: ${{ secrets.gpg_private_key }}
           gpg-passphrase: SIGN_KEY_PASS
 
+      - name: Run all Tests
+        run: mvn install
+
       - name: Perform maven release
         run: >
             mvn -B -ntp release:prepare release:perform \
