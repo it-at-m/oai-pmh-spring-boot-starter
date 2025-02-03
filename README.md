@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/github/license/it-at-m/oai-pmh-spring-boot-starter?style=for-the-badge)
 ![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge)
 
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.4.0-brightgreen?style=for-the-badge)
+![Spring Boot](https://img.shields.io/badge/spring--boot-3.4.2-brightgreen?style=for-the-badge)
 ![Java](https://img.shields.io/badge/java-21-brightgreen?style=for-the-badge)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/it-at-m/oai-pmh-spring-boot-starter/maven.yml?style=for-the-badge)
 
@@ -40,7 +40,7 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 <dependency>
   <groupId>de.muenchen.oss.oai</groupId>
   <artifactId>oai-pmh-spring-boot-starter</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -49,7 +49,7 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 <dependency>
   <groupId>de.muenchen.oss.oai</groupId>
   <artifactId>oai-pmh-schema</artifactId>
-  <version>2.0.0</version>
+  <version>2.0.1</version>
 </dependency>
 
 ```
