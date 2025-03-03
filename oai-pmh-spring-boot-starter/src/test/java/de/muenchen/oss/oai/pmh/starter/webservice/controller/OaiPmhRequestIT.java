@@ -5,6 +5,8 @@ import de.muenchen.oss.oai.pmh.schema.*;
 import de.muenchen.oss.oai.pmh.starter.configuration.jackson.JacksonConfiguration;
 import de.muenchen.oss.oai.pmh.starter.webservice.RequestProcessorImplementation;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.request.Argument;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -13,6 +15,8 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
@@ -53,6 +57,14 @@ class OaiPmhRequestIT {
             queryParametersMap.put(keyValue[0], keyValue[1]);
         }
         return queryParametersMap;
+    }
+
+    @TestConfiguration //https://stackoverflow.com/questions/64642848/how-to-wire-up-micrometer-with-webmvctest
+    static class AdditionalConfig {
+        @Bean
+        public MeterRegistry registry() {
+            return new SimpleMeterRegistry();
+        }
     }
 
     @BeforeAll
