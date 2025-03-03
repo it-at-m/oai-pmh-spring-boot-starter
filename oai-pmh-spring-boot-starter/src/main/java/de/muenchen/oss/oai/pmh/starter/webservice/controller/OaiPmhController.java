@@ -5,6 +5,8 @@ import de.muenchen.oss.oai.pmh.exceptions.BadVerbException;
 import de.muenchen.oss.oai.pmh.schema.OaiPmhType;
 import de.muenchen.oss.oai.pmh.starter.webservice.schema.response.OaiPmhTypeFactory;
 import de.muenchen.oss.oai.pmh.starter.webservice.validation.*;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/oai-pmh", produces = MediaType.TEXT_XML_VALUE, method = { RequestMethod.GET, RequestMethod.POST })
@@ -37,6 +41,10 @@ public class OaiPmhController {
     @Autowired
     private RequestProcessor requestProcessor;
 
+    @Autowired
+    private MeterRegistry meterRegistry;
+    private final Map<String, Counter> requesterCounters = new HashMap<>();
+
     public OaiPmhController() {
         this.identifyValidator = new IdentifyValidator();
         this.getRecordValidator = new GetRecordValidator();
@@ -53,6 +61,7 @@ public class OaiPmhController {
     @RequestMapping(params = { "verb=Identify" })
     public ResponseEntity<OaiPmhType> identify(HttpServletRequest request,
             @RequestParam(required = false) boolean complete) {
+        increaseRequestCounter(request);
         this.identifyValidator.checkRequest(request.getParameterMap());
         OaiPmhType identifyResponseType = OaiPmhTypeFactory.createOaiPmhIdentifyResponseType(request);
         OaiPmhType oaiPmhType = requestProcessor.processIdentifyRequest(identifyResponseType, complete);
@@ -70,6 +79,7 @@ public class OaiPmhController {
             @RequestParam(required = false) String identifier,
             @RequestParam(required = false) String metadataPrefix,
             @RequestParam(required = false) boolean complete) {
+        increaseRequestCounter(request);
         this.getRecordValidator.checkRequest(request.getParameterMap());
         OaiPmhType getRecordResponseType = OaiPmhTypeFactory.createOaiPmhGetRecordResponseType(request);
         OaiPmhType oaiPmhType = requestProcessor.processGetRecordRequest(identifier, metadataPrefix, complete, getRecordResponseType);
@@ -90,6 +100,7 @@ public class OaiPmhController {
             @RequestParam(required = false) String set,
             @RequestParam(required = false) String resumptionToken,
             @RequestParam(required = false) boolean complete) {
+        increaseRequestCounter(request);
         this.listIdentifiersValidator.checkRequest(request.getParameterMap());
         OaiPmhType listIdentifiersType = OaiPmhTypeFactory.createOaiPmhListIdentifiersType(request);
         OaiPmhType oaiPmhType = requestProcessor.processListIdentifiersRequest(from, until, metadataPrefix, set, resumptionToken, complete,
@@ -106,6 +117,7 @@ public class OaiPmhController {
     public ResponseEntity<OaiPmhType> listMetadataFormats(
             HttpServletRequest request,
             @RequestParam(required = false) String identifier) {
+        increaseRequestCounter(request);
         this.listMetadataFormatsValidator.checkRequest(request.getParameterMap());
         OaiPmhType listMetaDataFormatsType = OaiPmhTypeFactory.createOaiPmhListMetaDataFormatsType(request);
         OaiPmhType oaiPmhType = requestProcessor.processListMetadataFormatsRequest(identifier, listMetaDataFormatsType);
@@ -126,6 +138,7 @@ public class OaiPmhController {
             @RequestParam(required = false) String set,
             @RequestParam(required = false) String resumptionToken,
             @RequestParam(required = false) boolean complete) {
+        increaseRequestCounter(request);
         this.listRecordsValidator.checkRequest(request.getParameterMap());
         OaiPmhType listRecordsType = OaiPmhTypeFactory.createOaiPmhListRecordsType(request);
         OaiPmhType oaiPmhType = requestProcessor.processListRecordsRequest(from, until, metadataPrefix, set, resumptionToken, complete,
@@ -142,6 +155,7 @@ public class OaiPmhController {
     public ResponseEntity<OaiPmhType> listSets(
             HttpServletRequest request,
             @RequestParam(required = false) String resumptionToken) {
+        increaseRequestCounter(request);
         this.listSetsValidator.checkRequest(request.getParameterMap());
         OaiPmhType pmhListSetsType = OaiPmhTypeFactory.createOaiPmhListSetsType(request);
         OaiPmhType oaiPmhType = requestProcessor.processListSetsRequest(resumptionToken, pmhListSetsType);
@@ -156,5 +170,25 @@ public class OaiPmhController {
     @RequestMapping("")
     public ResponseEntity<OaiPmhType> badVerb() {
         throw new BadVerbException();
+    }
+
+    static String getClientIp(HttpServletRequest request) {
+        String clientIP;
+        String xForwardedFor = request.getHeader("X-Forwarded-For");
+        if (xForwardedFor != null && !xForwardedFor.isEmpty()) {
+            // The HTTP X-Forwarded-For (XFF) request header is a de-facto standard header for identifying
+            // the originating IP address of a client connecting to a web server through a proxy server.
+            // Syntax: X-Forwarded-For: <client>, <proxy>, …, <proxyN>
+            clientIP = xForwardedFor.split(",")[0];
+        } else {
+            clientIP = request.getRemoteAddr();
+        }
+        return clientIP != null && !clientIP.isBlank() ? clientIP : "unknown";
+    }
+
+    void increaseRequestCounter(HttpServletRequest request) {
+        String clientIp = getClientIp(request);
+        Counter counter = requesterCounters.computeIfAbsent(clientIp, key -> meterRegistry.counter("requests_per_ip", "ip", key));
+        counter.increment();
     }
 }
