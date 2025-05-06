@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/github/license/it-at-m/oai-pmh-spring-boot-starter?style=for-the-badge)
 ![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge)
 
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.4.4-brightgreen?style=for-the-badge)
+![Spring Boot](https://img.shields.io/badge/spring--boot-3.4.5-brightgreen?style=for-the-badge)
 ![Java](https://img.shields.io/badge/java-21-brightgreen?style=for-the-badge)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/it-at-m/oai-pmh-spring-boot-starter/maven.yml?style=for-the-badge)
 
