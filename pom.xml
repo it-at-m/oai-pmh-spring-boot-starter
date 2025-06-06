@@ -47,7 +47,7 @@
 
           https://github.com/ASSERT-KTH/depclean/issues/278
         -->
-        <depclean-maven-plugin.version>2.0.6</depclean-maven-plugin.version>
+        <depclean-maven-plugin.version>2.1.0</depclean-maven-plugin.version>
         <sonar.coverage.jacoco.xmlReportPaths>reportmodule/target/site/jacoco-aggregate/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
