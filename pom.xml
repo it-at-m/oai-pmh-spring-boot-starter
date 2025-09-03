@@ -23,7 +23,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.version>3.5.4</spring.boot.version>
+        <spring.boot.version>3.5.5</spring.boot.version>
         <logstash.encoder>8.1</logstash.encoder>
         <!-- SonarQube -->
         <sonar.scanner.version>5.2.0.4988</sonar.scanner.version>
