@@ -38,7 +38,7 @@
         <ojdbc10.version>19.21.0.0</ojdbc10.version>
         <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
         <!-- Update to > 2.34.0 currently not possible. For more details see https://github.com/diffplug/spotless/issues/1658 -->
-        <spotless-maven-plugin.version>2.46.1</spotless-maven-plugin.version>
+        <spotless-maven-plugin.version>3.0.0</spotless-maven-plugin.version>
         <itm-java-codeformat.version>1.0.10</itm-java-codeformat.version>
         <!--
           The depclean-maven-plugin version 2.0.6 uses the ASM Library version 9.4,
