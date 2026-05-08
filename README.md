@@ -40,7 +40,7 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 <dependency>
   <groupId>de.muenchen.oss.oai</groupId>
   <artifactId>oai-pmh-spring-boot-starter</artifactId>
-  <version>3.0.0</version>
+  <version>main</version>
 </dependency>
 ```
 
@@ -49,7 +49,7 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 <dependency>
   <groupId>de.muenchen.oss.oai</groupId>
   <artifactId>oai-pmh-schema</artifactId>
-  <version>3.0.0</version>
+  <version>main</version>
 </dependency>
 
 ```
