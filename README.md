@@ -4,8 +4,8 @@
 ![License](https://img.shields.io/github/license/it-at-m/oai-pmh-spring-boot-starter?style=for-the-badge)
 ![Gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge)
 
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.5.13-brightgreen?style=for-the-badge)
-![Java](https://img.shields.io/badge/java-21-brightgreen?style=for-the-badge)
+![Spring Boot](https://img.shields.io/badge/spring--boot-4.0.6-brightgreen?style=for-the-badge)
+![Java](https://img.shields.io/badge/java-25-brightgreen?style=for-the-badge)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/it-at-m/oai-pmh-spring-boot-starter/maven.yml?style=for-the-badge)
 
 OAI-PMH Spring Boot Starter will help you build an [OAI-PMH](https://www.openarchives.org/pmh/) Data provider
@@ -40,7 +40,7 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 <dependency>
   <groupId>de.muenchen.oss.oai</groupId>
   <artifactId>oai-pmh-spring-boot-starter</artifactId>
-  <version>2.3.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
@@ -49,7 +49,7 @@ with [Spring Boot](https://github.com/spring-projects/spring-boot)
 <dependency>
   <groupId>de.muenchen.oss.oai</groupId>
   <artifactId>oai-pmh-schema</artifactId>
-  <version>2.3.0</version>
+  <version>3.0.0</version>
 </dependency>
 
 ```
