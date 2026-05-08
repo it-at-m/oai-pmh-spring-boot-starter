@@ -50,6 +50,9 @@
         <depclean-maven-plugin.version>2.1.0</depclean-maven-plugin.version>
         <sonar.coverage.jacoco.xmlReportPaths>reportmodule/target/site/jacoco-aggregate/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
+        <p2.username /> <!-- must be empty, override via Maven settings.xml if needed -->
+        <p2.password /> <!-- must be empty, override via Maven settings.xml if needed -->
+        <p2.mirror>download.eclipse.org</p2.mirror>
     </properties>
 
 
