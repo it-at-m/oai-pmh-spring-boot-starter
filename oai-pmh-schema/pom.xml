@@ -16,7 +16,7 @@
     <description>OAI-PMH java classes for the Schema</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <sonar.exclusions>**/oai-pmh-schema/**/*</sonar.exclusions>
     </properties>
 
