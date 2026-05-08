@@ -18,23 +18,23 @@
     </modules>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.version>3.5.13</spring.boot.version>
+        <spring.boot.version>4.0.6</spring.boot.version>
         <logstash.encoder>9.0</logstash.encoder>
         <!-- SonarQube -->
-        <sonar.scanner.version>5.5.0.6356</sonar.scanner.version>
+        <sonar.scanner.version>5.6.0.6792</sonar.scanner.version>
         <!-- TestCoverage -->
         <jacoco.version>0.8.14</jacoco.version>
         <!-- Plugins -->
         <maven-scm-plugin.version>2.2.1</maven-scm-plugin.version>
         <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
-        <maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
+        <maven.compiler.plugin.version>3.15.0</maven.compiler.plugin.version>
         <!-- Version muss mit der in den spring-boot-dependencies bereitgestellten Lombok-Version übereinstimmen -->
-        <org.projectlombok.lombok.version>1.18.42</org.projectlombok.lombok.version>
+        <org.projectlombok.lombok.version>1.18.46</org.projectlombok.lombok.version>
         <ojdbc10.version>19.21.0.0</ojdbc10.version>
         <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
         <!-- Update to > 2.34.0 currently not possible. For more details see https://github.com/diffplug/spotless/issues/1658 -->
@@ -138,6 +138,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.12.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -151,6 +152,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -250,6 +252,12 @@
                         </excludes>
                         <eclipse>
                             <file>itm-java-codeformat/java_codestyle_formatter.xml</file>
+                            <p2Mirrors>
+                                <p2Mirror>
+                                    <prefix>https://download.eclipse.org</prefix>
+                                    <url>https://${p2.username}:${p2.password}@${p2.mirror}</url>
+                                </p2Mirror>
+                            </p2Mirrors>
                         </eclipse>
                         <trimTrailingWhitespace />
                         <endWithNewline />
